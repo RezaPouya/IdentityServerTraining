@@ -29,6 +29,10 @@ namespace WebPortal.Configurations
 
                     opts.Scope.Add("verification");
                     opts.ClaimActions.MapJsonKey("email_verified", "email_verified");
+
+                    // quickstart 3 ( ASP.NET Core and API access ) -- refresh-token
+                    opts.Scope.Add("OrderService");
+                    opts.Scope.Add("offline_access");
                 });
         }
     }
