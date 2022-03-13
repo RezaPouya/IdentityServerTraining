@@ -1,6 +1,7 @@
-﻿using Duende.IdentityServer.Models;
+﻿using Duende.IdentityServer;
+using Duende.IdentityServer.Models;
 
-namespace IdentityServer;
+namespace IdentityConfigs;
 
 public static class ClientConfig
 {
@@ -32,7 +33,7 @@ public static class ClientConfig
                 ClientSecrets = { new Secret("secret".Sha256()) },
                 AllowedScopes = { "OrderService"  , "AccountService"}
             },
-            
+
             new Client
             {
                 ClientId = "AccountServiceClient",
@@ -40,7 +41,22 @@ public static class ClientConfig
                 ClientSecrets = { new Secret("secret".Sha256()) },
                 AllowedScopes = { "OrderService"  , "InvoiceService"}
             },
+            // interactive ASP.NET Core Web App
+            new Client {
+                ClientId = "WebPortalClient",
+                ClientSecrets = { new Secret ("secret".Sha256())},
+                AllowedGrantTypes  = GrantTypes.Code ,
+                // where to redirect to after login
+                RedirectUris = { "https://localhost:8002/signin-oidc" },
+                // where to redirect to after logout
+                PostLogoutRedirectUris = { "https://localhost:8002/signout-callback-oidc" },
 
+                AllowedScopes = { 
+                    IdentityServerConstants.StandardScopes.OpenId,
+                    IdentityServerConstants.StandardScopes.Profile,
+                    "verification"
+                }
+            }
         };
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Duende.IdentityServer.Models;
 
-namespace IdentityServer;
+namespace IdentityConfigs;
 
 public static class ApiScopeConfig
 {

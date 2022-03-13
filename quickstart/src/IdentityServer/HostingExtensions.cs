@@ -1,3 +1,4 @@
+using IdentityConfigs;
 using Serilog;
 
 namespace IdentityServer;
@@ -7,7 +8,7 @@ internal static class HostingExtensions
     public static WebApplication ConfigureServices(this WebApplicationBuilder builder)
     {
         // uncomment if you want to add a UI
-        //builder.Services.AddRazorPages();
+        builder.Services.AddRazorPages();
 
         builder.Services.AddIdentityServer(options =>
             {
@@ -16,7 +17,11 @@ internal static class HostingExtensions
             })
             .AddInMemoryIdentityResources(IdentityResourceConfig.GetIdentityResources())
             .AddInMemoryApiScopes(ApiScopeConfig.GetApiScopes())
+            .AddTestUsers(IdentityUserConfig.GetTestUsers())
             .AddInMemoryClients(ClientConfig.GetClients());
+
+        //builder.Services.AddGoogle(builder.Configuration);
+        builder.Services.AddGoogleWithCloudDemo(builder.Configuration);
 
         return builder.Build();
     }
@@ -31,14 +36,14 @@ internal static class HostingExtensions
         }
 
         // uncomment if you want to add a UI
-        //app.UseStaticFiles();
-        //app.UseRouting();
+        app.UseStaticFiles();
+        app.UseRouting();
 
         app.UseIdentityServer();
 
         // uncomment if you want to add a UI
-        //app.UseAuthorization();
-        //app.MapRazorPages().RequireAuthorization();
+        app.UseAuthorization();
+        app.MapRazorPages().RequireAuthorization();
 
         return app;
     }
