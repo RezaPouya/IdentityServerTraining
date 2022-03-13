@@ -25,5 +25,16 @@ namespace IdentityServer.Configurations
                 })
                 .AddTestUsers(IdentityUserConfig.GetTestUsers());
         }
+
+        //builder.Services.AddIdentityServer(options =>
+        //    {
+        //        // https://docs.duendesoftware.com/identityserver/v6/fundamentals/resources/api_scopes#authorization-based-on-scopes
+        //        options.EmitStaticAudienceClaim = true;
+        //    })
+        //    .AddInMemoryIdentityResources(IdentityResourceConfig.GetIdentityResources())
+        //    .AddInMemoryApiScopes(ApiScopeConfig.GetApiScopes())
+        //    .AddTestUsers(IdentityUserConfig.GetTestUsers())
+        //    .AddInMemoryClients(ClientConfig.GetClients());
+
     }
 }

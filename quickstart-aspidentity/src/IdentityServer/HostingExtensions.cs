@@ -10,15 +10,6 @@ internal static class HostingExtensions
         // uncomment if you want to add a UI
         builder.Services.AddRazorPages();
 
-        //builder.Services.AddIdentityServer(options =>
-        //    {
-        //        // https://docs.duendesoftware.com/identityserver/v6/fundamentals/resources/api_scopes#authorization-based-on-scopes
-        //        options.EmitStaticAudienceClaim = true;
-        //    })
-        //    .AddInMemoryIdentityResources(IdentityResourceConfig.GetIdentityResources())
-        //    .AddInMemoryApiScopes(ApiScopeConfig.GetApiScopes())
-        //    .AddTestUsers(IdentityUserConfig.GetTestUsers())
-        //    .AddInMemoryClients(ClientConfig.GetClients());
 
         builder.AddUdentityServerWithEfCore();
 
