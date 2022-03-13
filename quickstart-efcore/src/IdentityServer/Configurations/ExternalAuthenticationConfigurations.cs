@@ -15,25 +15,25 @@ namespace IdentityServer.Configurations
         /// </summary>
         /// <param name="services"></param>
         /// <param name="configuration"></param>
-        public static void AddGoogle(this IServiceCollection services, IConfiguration configuration)
+        public static void AddGoogle(this WebApplicationBuilder builder)
         {
-            services.AddAuthentication()
+            builder.Services.AddAuthentication()
            .AddGoogle("Google", options =>
            {
                options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
-               options.ClientId = configuration["Authentication:Google:ClientId"];
-               options.ClientSecret = configuration["Authentication:Google:ClientSecret"];
+               options.ClientId = builder.Configuration["Authentication:Google:ClientId"];
+               options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
            });
         }
 
-        public static void AddGoogleWithCloudDemo(this IServiceCollection services, IConfiguration configuration)
+        public static void AddGoogleWithCloudDemo(this WebApplicationBuilder builder)
         {
-            services.AddAuthentication()
+            builder.Services.AddAuthentication()
            .AddGoogle("Google", options =>
            {
                options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
-               options.ClientId = configuration["Authentication:Google:ClientId"];
-               options.ClientSecret = configuration["Authentication:Google:ClientSecret"];
+               options.ClientId = builder.Configuration["Authentication:Google:ClientId"];
+               options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
            })
            .AddOpenIdConnect("oidc", "Demo Identity Server", opts =>
          {

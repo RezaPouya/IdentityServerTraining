@@ -1,0 +1,33 @@
+﻿@page
+@model IndexModel
+
+@using Microsoft.AspNetCore.Authentication
+
+<div class="card">
+    <h2 class="card-header">Claims</h2>
+    <div class="card-body">
+        <dl>
+            @foreach (var claim in User.Claims)
+            {
+                <dt>@claim.Type</dt>
+                <dd>@claim.Value</dd>
+            }
+        </dl>
+    </div>
+
+</div>
+
+<br/>
+
+<div class="card">
+    <h2 class="card-header">Properties</h2>
+    <div class="card-body">
+        <dl>
+            @foreach (var prop in (await HttpContext.AuthenticateAsync()).Properties.Items)
+            {
+                <dt>@prop.Key</dt>
+                <dd>@prop.Value</dd>
+            }
+        </dl>
+    </div>
+</div>
