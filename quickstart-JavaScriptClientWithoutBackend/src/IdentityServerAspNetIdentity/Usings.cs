@@ -1,0 +1,10 @@
+﻿global using Duende.IdentityServer;
+global using IdentityServerAspNetIdentity.Configurations;
+global using IdentityServerAspNetIdentity.Data;
+global using IdentityServerAspNetIdentity.Models;
+global using Microsoft.AspNetCore.Identity;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.IdentityModel.Tokens;
+global using Serilog;
+global using IdentityModel;
+global using System.Security.Claims;
