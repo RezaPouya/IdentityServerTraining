@@ -1,0 +1,5 @@
+base on https://docs.duendesoftware.com/identityserver/v6/quickstarts/1_client_credentials/
+
+please read previous chapters 
+
+this is for training 
