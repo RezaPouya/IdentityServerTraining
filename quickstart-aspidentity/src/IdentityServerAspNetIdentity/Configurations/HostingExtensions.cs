@@ -21,10 +21,9 @@ internal static class HostingExtensions
     
         if (app.Environment.IsDevelopment())
         {
+            InitializeData.InitializeDatabase(app);
             app.UseDeveloperExceptionPage();
         }
-
-        InitializeData.InitializeDatabase(app);
 
         app.UseStaticFiles();
         app.UseRouting();
