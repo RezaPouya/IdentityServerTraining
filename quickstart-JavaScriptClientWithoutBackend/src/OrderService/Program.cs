@@ -12,6 +12,17 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddIdentityAuthentication();
 builder.Services.AddIdentityAddAuthorization();
 
+builder.Services.AddCors(options =>
+{
+    // this defines a CORS policy called "default"
+    options.AddPolicy("default", policy =>
+    {
+        policy.WithOrigins("https://localhost:10002")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 //------------------------------------
 // Middlewares
 
@@ -25,6 +36,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("default");
 
 app.UseAuthentication();
 app.UseAuthorization();

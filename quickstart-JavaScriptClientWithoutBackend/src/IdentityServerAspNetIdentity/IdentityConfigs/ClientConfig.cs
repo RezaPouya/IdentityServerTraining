@@ -67,6 +67,24 @@ public static class ClientConfig
                     "InvoiceService"
                 }
             },
+            new Client
+            {
+                ClientId = "Javascript_App",
+                ClientName = "JavaScript Client",
+                AllowedGrantTypes = GrantTypes.Code,
+                RequireClientSecret = false,
+                RedirectUris =           { "https://localhost:10002/callback.html" },
+                PostLogoutRedirectUris = { "https://localhost:10002/index.html" },
+                AllowedCorsOrigins =     { "https://localhost:10002" },
+                AllowedScopes =
+                {
+                    IdentityServerConstants.StandardScopes.OpenId,
+                    IdentityServerConstants.StandardScopes.Profile,
+                    "verification",
+                    "OrderService",
+                    "InvoiceService"
+                }
+            }
         };
     }
 }
