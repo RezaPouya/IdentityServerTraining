@@ -31,6 +31,7 @@ public static class ClientConfig
                 ClientSecrets = { new Secret("secret".Sha256()) },
                 AllowedScopes = { "OrderService"  , "InvoiceService"}
             },
+
             // interactive ASP.NET Core Web App
             new Client {
                 ClientId = "WebPortalClient",
