@@ -92,6 +92,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8D0555B6-9418-4373-AAD5-74BC25768D9D}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		tye.yaml = tye.yaml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "gateway", "gateway", "{0F209705-7D2E-4697-8C1D-37D5AAE94CBB}"
@@ -100,7 +101,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasky.Gateway", "gateway\Ta
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mvc", "mvc", "{291AFF31-1331-426E-9D95-D9531AF306F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task.Mvc.Client", "mvc\Task.Mvc.Client\Task.Mvc.Client.csproj", "{9E83DB82-11E3-4DEA-A9EC-26E127371943}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task.Mvc.Client", "mvc\Task.Mvc.Client\Task.Mvc.Client.csproj", "{9E83DB82-11E3-4DEA-A9EC-26E127371943}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
