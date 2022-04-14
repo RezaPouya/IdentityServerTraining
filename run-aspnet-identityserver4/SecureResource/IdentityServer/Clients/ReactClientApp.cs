@@ -18,7 +18,7 @@ namespace IdentityServer.Clients
                 AllowOfflineAccess = true , 
                 RedirectUris = new List<string>() { "http://localhost:4200/signin-oidc" , "http://localhost:4200/authentication/callback" },
                 PostLogoutRedirectUris = new List<string>() { "http://localhost:4200/signout-callback-oidc" },
-                ClientSecrets = new List<Secret> { new Secret("secret".Sha256()) },
+                //ClientSecrets = new List<Secret> { new Secret("secret".Sha256()) },
                 AllowedScopes = new List<string>
                 {
                     IdentityServerConstants.StandardScopes.OpenId,
