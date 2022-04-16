@@ -1,15 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using IdentityServer4.Models;
+using IdentityServer4.Services;
 using IdentityServer4.Test;
 using IdentityServerHost.Quickstart.UI;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace IdentityServer
 {
@@ -25,8 +21,27 @@ namespace IdentityServer
                 .AddInMemoryClients(Config.Clients)
                 .AddInMemoryApiScopes(Config.ApiScopes)
                 .AddInMemoryIdentityResources(Config.IdentityResources)
-                .AddTestUsers(TestUsers.Users)
+                .AddTestUsers(Config.TestUsers())
                 .AddDeveloperSigningCredential();
+
+            services.AddSingleton<ICorsPolicyService>((container) =>
+            {
+                var logger = container.GetRequiredService<ILogger<DefaultCorsPolicyService>>();
+                return new DefaultCorsPolicyService(logger)
+                {
+                    AllowAll = true
+                };
+            });
+
+            //services.AddCors(option =>
+            //{
+            //    option.AddPolicy("dafault", policy =>
+            //    {
+            //        policy.WithOrigins("http://localhost:5003")
+            //              .AllowAnyHeader()
+            //              .AllowAnyMethod();
+            //    });
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

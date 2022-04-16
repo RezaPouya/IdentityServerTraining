@@ -1,0 +1,28 @@
+# tye application configuration file
+# read all about it at https://github.com/dotnet/tye
+#
+# when you've given us a try, we'd love to know what you think:
+#    https://aka.ms/AA7q20u
+#
+name: secureresource
+services:
+- name: movies-api
+  project: Movies.API/Movies.API.csproj
+  bindings:
+  - protocol: https 
+    port: 5001
+- name: identityserver
+  project: IdentityServer/IdentityServer.csproj
+  bindings:
+  - protocol: https 
+    port: 5005
+- name: movies-client
+  project: Movies.Client/Movies.Client.csproj
+  bindings:
+  - protocol: https 
+    port: 5002
+- name: apigateway
+  project: ApiGateway/ApiGateway.csproj
+  bindings:
+  - protocol: https
+    port: 5010
