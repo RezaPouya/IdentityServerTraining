@@ -3,6 +3,14 @@ https://github.com/AxaGuilDEv/react-oidc/tree/master/packages/context#readme.md
 https://github.com/AxaGuilDEv/react-oidc
 
 
+git clone https://github.com/AxaGuilDEv/react-oidc.git
+cd react-oidc/packages/context
+npm install
+npm start
+# then navigate to http://localhost:4200
+
+
+
 https://www.youtube.com/watch?v=t18YB3xDfXI
 
 https://www.youtube.com/watch?v=Gtbm5Fut-j8
